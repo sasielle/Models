@@ -1,0 +1,92 @@
+class CarDetailsModel {
+  String? logo;
+  List<CarModelDetails>? carModelDetailsModelsList;
+  CarDetailsModel({this.logo, this.carModelDetailsModelsList});
+}
+
+class CarModelDetails {
+  String? model;
+  String? name;
+  List<Mode>? mode;
+  CarModelDetails({this.mode, this.model, this.name});
+}
+
+class Mode {
+  String? modelName;
+  String? modelImage;
+  Mode({this.modelImage, this.modelName});
+}
+
+List<CarDetailsModel> prepareCarsData() {
+  List<CarDetailsModel> cardDetailsModelsList = [];
+  cardDetailsModelsList.add(CarDetailsModel(
+      logo: "assets/logos/acura-logo.png",
+      carModelDetailsModelsList: [
+        CarModelDetails(model: "car_model1", name: "Name", mode: [
+          Mode(modelImage: "petrol image", modelName: "petrol"),
+        ]),
+        CarModelDetails(model: "car_model2", name: "Name", mode: [
+          Mode(modelImage: "petrol image", modelName: "petrol"),
+          Mode(modelImage: "disel image", modelName: "disel"),
+        ]),
+        CarModelDetails(model: "car_model3", name: "Name", mode: [
+          Mode(modelImage: "petrol image", modelName: "petrol"),
+          Mode(modelImage: "disel image", modelName: "disel"),
+        ]),
+      ]));
+  cardDetailsModelsList.add(CarDetailsModel(
+      logo: "assets/logos/alfa-romeo-logo.png",
+      carModelDetailsModelsList: [
+        CarModelDetails(model: "car1", name: "Name", mode: [
+          Mode(modelImage: "petrol image", modelName: "petrol"),
+          Mode(modelImage: "disel image", modelName: "disel"),
+          Mode(modelImage: "lpg image", modelName: "lpg"),
+        ]),
+        CarModelDetails(model: "car4", name: "Name", mode: [
+          Mode(modelImage: "petrol image", modelName: "petrol"),
+        ]),
+        CarModelDetails(model: "car5", name: "Name", mode: [
+          Mode(modelImage: "petrol image", modelName: "petrol"),
+        ]),
+        CarModelDetails(model: "car2", name: "Name", mode: [
+          Mode(modelImage: "petrol image", modelName: "petrol"),
+          Mode(modelImage: "disel image", modelName: "disel"),
+          Mode(modelImage: "lpg image", modelName: "lpg"),
+        ]),
+        CarModelDetails(model: "car3", name: "Name", mode: [
+          Mode(modelImage: "petrol image", modelName: "petrol"),
+          Mode(modelImage: "disel image", modelName: "disel"),
+          Mode(modelImage: "lpg image", modelName: "lpg"),
+        ]),
+      ]));
+  cardDetailsModelsList.add(CarDetailsModel(
+      logo: "assets/logos/aston-martin-logo.png",
+      carModelDetailsModelsList: [
+        CarModelDetails(model: "c1", name: "Ne", mode: [
+          Mode(modelImage: "petrol image", modelName: "petrol"),
+          Mode(modelImage: "disel image", modelName: "disel"),
+          Mode(modelImage: "lpg image", modelName: "lpg"),
+        ]),
+      ]));
+  cardDetailsModelsList.add(CarDetailsModel(
+      logo: "assets/logos/audi-logo.png",
+      carModelDetailsModelsList: [
+        CarModelDetails(model: "c1", name: "Ne", mode: [
+          Mode(modelImage: "petrol image", modelName: "petrol"),
+          Mode(modelImage: "disel image", modelName: "disel"),
+          Mode(modelImage: "lpg image", modelName: "lpg"),
+        ]),
+      ]));
+  cardDetailsModelsList.add(CarDetailsModel(
+      logo: "assets/logos/bentley-logo.png",
+      carModelDetailsModelsList: [
+        CarModelDetails(model: "c1", name: "Ne", mode: [
+          Mode(modelImage: "petrol image", modelName: "petrol"),
+          Mode(modelImage: "disel image", modelName: "disel"),
+          Mode(modelImage: "lpg image", modelName: "lpg"),
+        ]),
+      ]));
+
+
+  return cardDetailsModelsList;
+}
