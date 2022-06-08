@@ -1,0 +1,111 @@
+class CarEntity {
+  String? id;
+  String? title;
+  String? typeMovie;
+  String? image; // image String with using also svg icon image//
+
+  List<ListofCards>? listofservices;
+  List<Benefits>? benefits;
+
+  CarEntity({
+    this.title,
+    this.id,
+    this.typeMovie,
+    this.image,
+    this.listofservices,
+    this.benefits,
+  });
+  CarEntity.fromSnapshotjson(DocumentSnapshot snapshot)
+      : id = snapshot.id,
+        title = snapshot["Title"],
+        typeMovie = snapshot["TypeMovie"],
+        image = snapshot["Titleimage"],
+        listofservices = snapshot["Listofservices"].map<ListofCards>((item) {
+          return ListofCards.fromMap(item);
+        }).toList(),
+        benefits = snapshot["Benefits"].map<Benefits>((item) {
+          return Benefits.fromMap(item);
+        }).toList();
+
+  // static Map<String, dynamic> stringToMap(String s) {
+  //   Map<String, dynamic> map = json.decode(s);
+  //   return map;
+  // }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "Id": id,
+      "Title": title,
+      "Titleimage": image,
+      "TypeMovie": typeMovie,
+      "Listofservices": listofservices!.map((i) => i.tojson()).toList(),
+      "Benefits": benefits!.map((i) => i.tojson()).toList(),
+    };
+  }
+}
+
+class Benefits {
+  String icon; //  Svg icon   // replace icons
+  String title; // condition -----> 6 digits text only
+  Benefits({required this.icon, required this.title});
+  Benefits.fromMap(Map<dynamic, dynamic> data)
+      : title = data["Title"],
+        icon = data["Icon"];
+  tojson() {
+    return {
+      "Title": title,
+      "Icon": icon,
+    };
+  }
+}
+
+class ListofCards {
+  String title;
+  String subtitle1;
+  String subtitle2;
+  String subtitle3;
+  String subtitle4;
+  String badge;
+  String image;
+  int price;
+  int subprice;
+  List includes = [];
+
+  ListofCards(
+      {this.title = "",
+      this.subtitle1 = "",
+      this.subtitle2 = "",
+      this.subtitle3 = "",
+      this.subtitle4 = "",
+      this.image = "",
+      this.badge = "",
+      required this.includes,
+      required this.price,
+      required this.subprice});
+  ListofCards.fromMap(Map<dynamic, dynamic> data)
+      : title = data["Title"],
+        subtitle1 = data["SubTitle1"],
+        subtitle2 = data["SubTitle2"],
+        subtitle3 = data["SubTitle3"],
+        subtitle4 = data["SubTitle4"],
+        badge = data["Badge"],
+        image = data["Image"],
+        price = data["Price"],
+        includes = data["Includes"],
+        subprice = data["SubPrice"];
+
+  tojson() {
+    return {
+      "Title": title,
+      "SubTitle1": subtitle1,
+      "SubTitle2": subtitle2,
+      "SubTitle3": subtitle3,
+      "SubTitle4": subtitle4,
+      "Badge": badge,
+      "Image": image,
+      "Price": price,
+      "SubPrice": subprice,
+      "Includes": includes,
+    };
+  }
+}
